@@ -1,8 +1,10 @@
 import { getProfile } from "linkedin-api-adapter";
 import { getProfileMessenger } from "../messengers/GetProfileMessenger";
 
-getProfileMessenger.subscribe(async (payload) => {
-  const { profileUrn } = payload;
+export const subscribe = () => {
+  getProfileMessenger.subscribe(async (payload) => {
+    const { profileUrn } = payload;
 
-  return await getProfile(profileUrn);
-});
+    return await getProfile(profileUrn);
+  });
+};
