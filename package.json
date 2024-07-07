@@ -1,6 +1,6 @@
 {
   "name": "linkedin-content-scripts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Content Scripts for LinkedIn",
   "main": "dist/index.js",
   "scripts": {
