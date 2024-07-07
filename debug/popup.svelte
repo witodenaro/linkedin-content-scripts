@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { getCurrentUserProfile } from "linkedin-api-adapter"
+  import { getCurrentUserProfileMessenger } from "../dist/messengers/GetCurrentUserProfileMessenger"
 
   export let count = 0
   async function increment() {
-    const profile = await getCurrentUserProfile()
-    console.log(profile)
+    const res = await getCurrentUserProfileMessenger.send()
+    console.log(res)
   }
 </script>
 

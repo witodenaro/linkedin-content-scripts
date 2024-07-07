@@ -1,5 +1,5 @@
 import { SearchedPersonEntity } from "linkedin-api-adapter/dist/requests/searchPeople/types";
-import { ContentScriptMessenger } from "src/ContentScriptMessenger/ContentScriptMessenger";
+import { ContentScriptMessenger } from "../ContentScriptMessenger/ContentScriptMessenger";
 
 interface Payload {
   count: number;
@@ -11,7 +11,11 @@ interface Payload {
 class SearchPeopleMessenger extends ContentScriptMessenger<
   Payload,
   SearchedPersonEntity[]
-> {}
+> {
+  constructor() {
+    super("SEARCH_PEOPLE");
+  }
+}
 
 const searchPeopleMessenger = new SearchPeopleMessenger();
 

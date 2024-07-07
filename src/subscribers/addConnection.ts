@@ -1,12 +1,8 @@
 import { addConnection } from "linkedin-api-adapter";
 import { addConnectionsMessenger } from "src/messengers/AddConnectionMessenger";
 
-addConnectionsMessenger.subscribe(async (message) => {
-  const { profileUrn, options } = message.payload;
+addConnectionsMessenger.subscribe(async (payload) => {
+  const { profileUrn, options } = payload;
 
   await addConnection(profileUrn, options);
-
-  return {
-    response: undefined,
-  };
 });

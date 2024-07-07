@@ -1,15 +1,19 @@
 import type { ProfileElement } from "linkedin-api-adapter";
-import { ContentScriptMessenger } from "src/ContentScriptMessenger/ContentScriptMessenger"
+import { ContentScriptMessenger } from "../ContentScriptMessenger/ContentScriptMessenger";
 
 interface Payload {
-  vanityName: string
+  vanityName: string;
 }
 
 class GetConnectionsCountMessenger extends ContentScriptMessenger<
   Payload,
   ProfileElement
-> {}
+> {
+  constructor() {
+    super("GET_CONNECTIONS_COUNT");
+  }
+}
 
-const getConnectionsCountMessenger = new GetConnectionsCountMessenger()
+const getConnectionsCountMessenger = new GetConnectionsCountMessenger();
 
-export { getConnectionsCountMessenger }
+export { getConnectionsCountMessenger };

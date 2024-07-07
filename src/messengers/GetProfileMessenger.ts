@@ -1,5 +1,5 @@
 import type { UserProfile } from "linkedin-api-adapter";
-import { ContentScriptMessenger } from "src/ContentScriptMessenger/ContentScriptMessenger";
+import { ContentScriptMessenger } from "../ContentScriptMessenger/ContentScriptMessenger";
 
 interface Payload {
   profileUrn: string;
@@ -8,7 +8,11 @@ interface Payload {
 class GetProfileMessenger extends ContentScriptMessenger<
   Payload,
   UserProfile
-> {}
+> {
+  constructor() {
+    super("GET_PROFILE");
+  }
+}
 
 const getProfileMessenger = new GetProfileMessenger();
 

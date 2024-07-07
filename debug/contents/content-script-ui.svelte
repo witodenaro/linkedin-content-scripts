@@ -1,15 +1,17 @@
 <script lang="ts">
-  import type { PlasmoGetOverlayAnchor } from "plasmo"
-  import { messengers } from "../../src"
-  import { addConnectionsMessenger } from "../../src/messengers/AddConnectionMessenger"
+  import type { PlasmoCSConfig, PlasmoGetOverlayAnchor } from "plasmo"
 
+  import { getCurrentUserProfileMessenger } from "../../dist/messengers/GetCurrentUserProfileMessenger.js"
+
+  export const config: PlasmoCSConfig = {
+    matches: ["https://www.linkedin.com/*"]
+  }
 
   export const getOverlayAnchor: PlasmoGetOverlayAnchor = () => {
     return document.querySelector("body")
   }
 
-  async function fetch() {
-  }
+  async function fetch() {}
 </script>
 
 <div>

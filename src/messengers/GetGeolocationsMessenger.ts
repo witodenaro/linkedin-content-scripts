@@ -1,17 +1,21 @@
 import type { GeolocationElement } from "linkedin-api-adapter";
-import { ContentScriptMessenger } from "src/ContentScriptMessenger/ContentScriptMessenger"
+import { ContentScriptMessenger } from "../ContentScriptMessenger/ContentScriptMessenger";
 
 interface Payload {
-  searchTerm: string
+  searchTerm: string;
 }
 
-type Response = GeolocationElement[]
+type Response = GeolocationElement[];
 
 class GetGeolocationsMessenger extends ContentScriptMessenger<
   Payload,
   Response
-> {}
+> {
+  constructor() {
+    super("GET_GEOLOCATIONS");
+  }
+}
 
-const getGeolocationsMessenger = new GetGeolocationsMessenger()
+const getGeolocationsMessenger = new GetGeolocationsMessenger();
 
-export { getGeolocationsMessenger }
+export { getGeolocationsMessenger };

@@ -1,12 +1,8 @@
-import { getConnectionsCount } from "linkedin-api-adapter"
-import { getConnectionsCountMessenger } from "src/messengers/GetConnectionsCountMessenger"
+import { getConnectionsCount } from "linkedin-api-adapter";
+import { getConnectionsCountMessenger } from "src/messengers/GetConnectionsCountMessenger";
 
-getConnectionsCountMessenger.subscribe(async (message) => {
-  const { vanityName } = message.payload
+getConnectionsCountMessenger.subscribe(async (payload) => {
+  const { vanityName } = payload;
 
-   const profile = await getConnectionsCount(vanityName)
-
-   return {
-    response: profile
-   }
-})
+  return await getConnectionsCount(vanityName);
+});

@@ -1,10 +1,8 @@
 import { getGeolocations } from "linkedin-api-adapter";
 import { getGeolocationsMessenger } from "src/messengers/GetGeolocationsMessenger";
 
-getGeolocationsMessenger.subscribe(async (message) => {
-  const { searchTerm } = message.payload;
+getGeolocationsMessenger.subscribe(async (payload) => {
+  const { searchTerm } = payload;
 
-  return {
-    response: await getGeolocations(searchTerm),
-  };
+  return await getGeolocations(searchTerm);
 });
