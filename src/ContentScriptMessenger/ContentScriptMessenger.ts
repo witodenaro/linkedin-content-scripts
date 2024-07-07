@@ -26,7 +26,14 @@ abstract class ContentScriptMessenger<P, R> {
   }
 
   async send(payload: P): Promise<ContentScriptResponse<R>> {
-    return await requestActiveTab<Message<P>>({ id: this.id, payload });
+    const response = await requestActiveTab<Message<P>>({
+      id: this.id,
+      payload,
+    });
+
+    return {
+      response,
+    };
   }
 }
 
